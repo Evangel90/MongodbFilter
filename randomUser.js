@@ -5,10 +5,13 @@ function generateRandomUser() {
   const lastName = faker.name.lastName();
   const fullName = `${firstName} ${lastName}`;
 
-  const year = 2024;
+  const minYear = 2001;
+  const maxYear = 2024;
+  const randomYear = Math.floor(Math.random() * (maxYear - minYear + 1)) + minYear;
+
   const randomMonth = Math.floor(Math.random() * 12);
   const randomDay = Math.floor(Math.random() * 31) + 1;
-  const registrationDate = new Date(year, randomMonth, randomDay);
+  const registrationDate = new Date(randomYear, randomMonth, randomDay);
 
   return{
     name: fullName,
